@@ -7,8 +7,8 @@ New post
     <input
       type="checkbox"
       name="post[sub_ids][]"
-      value=" <%= sub.id %>  ">
-  <%  %>
+      value="<%= sub.id %>"><%= sub.name %><br>
+  <%  end %>
   <input type="submit" value="Create Post">
 </form>
 

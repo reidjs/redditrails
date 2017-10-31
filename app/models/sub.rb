@@ -12,5 +12,8 @@
 class Sub < ApplicationRecord
   validates :name, :user_id, presence: true
   belongs_to :user
-  has_many :posts
+  has_many :subbings
+  has_many :posts, through: :subbings
+  # has_many :posts,
+  # through:
 end

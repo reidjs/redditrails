@@ -41,6 +41,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'annotate'
+  gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 group :development do

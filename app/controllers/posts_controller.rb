@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.sub_id = params[:sub_id]
+    @post.sub_ids = params[:post][:sub_ids]
+    # fail
     if @post.save
       # fail
       redirect_to post_url(@post)
@@ -29,6 +30,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, sub_ids: [])
   end
 end

@@ -1,0 +1,9 @@
+<%= @post.title %><br>
+<%= @post.body %><br>
+<hr>
+Comments<br>
+<% @post.comments.each do |comment| %>
+  <%= comment.body %><br>
+<% end %>
+
+<%= button_to "Add Comment", new_post_comment_url(@post), method: :get %>

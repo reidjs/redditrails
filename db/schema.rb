@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031182022) do
+ActiveRecord::Schema.define(version: 20171031213903) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -24,7 +24,13 @@ ActiveRecord::Schema.define(version: 20171031182022) do
     t.string "title"
     t.string "body"
     t.integer "user_id"
-    t.integer "sub_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subbings", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "sub_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

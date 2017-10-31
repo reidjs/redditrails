@@ -1,0 +1,15 @@
+New post
+<form action="<%= posts_url %>" method="post">
+  title<input type="text" name="post[title]" value="">
+  body<input type="text" name="post[body]" value="">
+  <br>Post to which subs?<br>
+  <% Sub.all.each do |sub| %>
+    <input
+      type="checkbox"
+      name="post[sub_ids][]"
+      value=" <%= sub.id %>  ">
+  <%  %>
+  <input type="submit" value="Create Post">
+</form>
+
+<!-- checkboxes for all subs  -->

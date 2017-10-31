@@ -1,1 +1,4 @@
-Subs Index
+Subs Index<br>
+<% @subs.each do |sub| %>
+  <a href="<%= sub_url(sub) %>"><%= sub.name %></a><br>
+<% end %>

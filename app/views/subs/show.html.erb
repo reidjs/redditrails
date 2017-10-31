@@ -1,15 +1,10 @@
+<a href="<%= subs_url %>">Back to index</a><br>
+Sub: <%= @sub.name %>
+(Created by <%= @sub.user.username %>) <br>
+<a href="<%= edit_sub_url(@sub) %>">Edit Sub</a><br>
 
-<%= @sub.name %>
-(Created by <%= @sub.user.username %>)
-<a href="<%= edit_sub_url(@sub) %>">Edit Sub</a>
-
-<%= @sub.posts.each do |post| %>
-  <%= post.title %>
+<% @sub.posts.each do |post| %>
+  <a href="<%= post_url(post) %>"> <%= post.title %></a> <br>
 <% end %>
 
-New post
-<%= button_to "New Post", new_sub_post, method: :get %>
-<form action="<%= sub_posts(@sub)%>" method="post">
-  Post title<input type="text" name="post[title]" value="">
-  <input type="submit" value="Create Post">
-</form>
+<%= button_to "New Post", new_post_url(@sub), method: :get %>

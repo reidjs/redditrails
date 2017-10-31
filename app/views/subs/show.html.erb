@@ -1,0 +1,15 @@
+
+<%= @sub.name %>
+(Created by <%= @sub.user.username %>)
+<a href="<%= edit_sub_url(@sub) %>">Edit Sub</a>
+
+<%= @sub.posts.each do |post| %>
+  <%= post.title %>
+<% end %>
+
+New post
+<%= button_to "New Post", new_sub_post, method: :get %>
+<form action="<%= sub_posts(@sub)%>" method="post">
+  Post title<input type="text" name="post[title]" value="">
+  <input type="submit" value="Create Post">
+</form>

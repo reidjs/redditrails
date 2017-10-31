@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redditrails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Logged in as: <%= current_user.username %>
+      <%= button_to "Logout", session_url, method: :delete %>
+    <br>
+    <% end %>
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <br><%= error %><br>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

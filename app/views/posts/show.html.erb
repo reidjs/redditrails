@@ -1,9 +1,14 @@
 <%= @post.title %><br>
 <%= @post.body %><br>
 <hr>
+<!-- DOES NOT WORK see childrecursion.rb in root directory for an example of
+how to recursively output children comments  -->
 Comments<br>
 <% @post.comments.each do |comment| %>
-  <%= comment.body %><br>
+  <%= comment.body %>
+  <% comment.child_comments.each do |child| %>
+    <%= render 'layouts/comments', comment: comment %>
+  <% end %>
 <% end %>
 
 <%= button_to "Add Comment", new_post_comment_url(@post), method: :get %>

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :subs
   resources :posts, only: [:destroy, :new, :show, :create] do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :show]
   end
 end

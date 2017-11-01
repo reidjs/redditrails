@@ -51,3 +51,12 @@ post4 = Post.new(
 )
 post4.sub_ids = [3]
 post4.save
+
+post5 = Post.new(
+  title: Faker::Lorem.sentence,
+  body: Faker::Lorem.sentence(40),
+  user_id: user2.id,
+  parent_comment_id: post3.id
+)
+post4.sub_ids = [3]
+post4.save
